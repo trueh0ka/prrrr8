@@ -1,0 +1,33 @@
+﻿<Window x:Class="vipief.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:vipief"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="347" Width="547">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid x:Name="Grid123" ItemsSource="{Binding Colours}" SelectedItem="{Binding Selected}" CanUserAddRows="False" CanUserResizeRows="False" CanUserDeleteRows="False"/>
+
+        <StackPanel Grid.Column="1">
+            <TextBlock Text="Название:" TextAlignment="Center"/>
+            <TextBox x:Name="NameBox" Text="{Binding Selected.Name}"/>
+            <TextBlock Text="Количество:" TextAlignment="Center"/>
+            <TextBox x:Name="KolvoBox" Text="{Binding Selected.Kolichstvo}"/>
+            <TextBlock Text="Цена:" TextAlignment="Center"/>
+            <TextBox x:Name="PriceBox" Text="{Binding Selected.Price}"/>
+        </StackPanel>
+        <Button Content="Добавить" Margin="51,127,51,170" Cursor="Hand" Command="{Binding AddCommand}" Grid.Column="1" Style="{DynamicResource qwer}"/>
+        <Button Content="Удалить" Margin="51,210,51,90" Cursor="Hand" Command="{Binding DeleteCommand}" Grid.Column="1" Style="{DynamicResource qwer1}"/>
+        <Button Content="Сохранение" Margin="51,166,51,126" Cursor="Hand" Command="{Binding SohranenieCommand}" Grid.Column="1" Style="{DynamicResource qwer3}"/>
+        <Button Content="Просто так)" Margin="51,246,51,51" Cursor="Hand" Command="{Binding DeleteCommand}" Grid.Column="1" Style="{DynamicResource qwer4}"/>
+        <Button Content="Просто так)" Margin="51,285,51,11" Cursor="Hand" Command="{Binding DeleteCommand}" Grid.Column="1" Style="{DynamicResource qwer5}"/>
+    </Grid>
+</Window>
+    
